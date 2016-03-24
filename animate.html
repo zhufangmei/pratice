@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	#pp{width:200px;height:200px;background-color: red;opacity:0.3;position:absolute;left:10px;font-size:14px;}
+    #pp1{width:200px;height:200px;background-color: yellow;opacity:0.3;}
+	</style>
+</head>
+<body>
+	<div id="pp">我爱学习</div>
+	
+	<script type="text/javascript">
+	window.onload=function(){
+   var share1=document.getElementById("pp");
+    //var share=document.getElementById("pp1");
+   share1.onmouseover=function(){
+          
+                 mov(share1,{'font-size':40,'height':400,'opacity':100},function(){
+                 	mov(share1,{});
+                 });//这里传参要传整数不能是小数
+
+	    	}
+	   
+
+	    	share1.onmouseout=function(){
+	    		mov(share1,{'font-size':14,'height':100,'opacity':30});
+
+              }
+ 
+function mov(obj,json,fn){
+ if(obj.timer!=null){
+ 	clearInterval(obj.timer);
+ }
+
+  obj.timer=setInterval(function(){
+  	  var flag=true;
+  	for(var i in json){
+  
+         if(i=="opacity"){
+          obj.num=Math.round(parseFloat(getStyle(obj,i))*100);//不管是IE和W3C都是或得的小数
+           }
+         else{
+           obj.num=parseInt(getStyle(obj,i));
+       }
+  
+         if(json[i]!=obj.num){//判断是否所有的动画都完成了
+               flag=false;
+               }
+
+         var speed=(json[i]-obj.num)/20;
+
+         speed=speed>0?Math.ceil(speed):Math.floor(speed);//动画的速度
+       if(i=="opacity"){
+          obj.num=obj.num+speed;
+          
+         obj.style.filter="alpha(opacity:"+obj.num+")";
+         obj.style.opacity=obj.num/100;
+       }
+       else{
+       	 console.log(obj.num);
+         obj.num=obj.num+speed;
+         obj.style[i]=obj.num+"px";
+     }
+     
+   
+  }
+   
+  if(flag){
+        clearInterval(obj.timer); //判断 是否 所有的运动 都达到目标值 
+        if(fn){
+        	   fn();//异步动画
+        	}
+        }  
+  
+
+  },50)
+      
+	
+
+	}
+	function getStyle(element, attr) {
+	    var value;
+	   if (typeof window.getComputedStyle != 'undefined') {//W3C
+		value = window.getComputedStyle(element, null)[attr];
+	    } else if (typeof element.currentStyle != 'undefined') {//IE
+		value = element.currentStyle[attr];
+	  }
+	   return value;
+}
+}
+	
+	</script>
+</body>
+</html>

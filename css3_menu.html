@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .top-nav
+        {
+            font-size: 14px;
+            font-weight: bold;
+            list-style: none;
+        }
+        .top-nav li
+        {
+            float: left;
+            margin-right: 1px;
+            position:relative;
+
+        }
+        .top-nav li a
+        {
+            line-height: 34px;
+            text-decoration: none;
+            background: #3f240e;
+            color: #fff;
+            display: block;
+            width: 80px;
+            text-align: center;
+        }        
+        .top-nav ul
+        {
+            list-style: none;
+            display: none;
+            padding: 0;
+          
+     
+            overflow: hidden;
+            position:absolute;
+             top:25px;
+        }
+        
+        .top-nav li a:hover
+        {
+            background-color:red;
+        }
+    
+       
+        .corner
+        {   width:0;
+            position:relative;
+            border-top: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid blue;
+           
+            left:30px;
+   
+          
+            
+        }
+        .top-nav li:hover ul{
+           display: block;
+        }
+    </style>
+    <script type="text/javascript">
+       
+    </script>
+</head>
+<body>
+    <ul class="top-nav">
+        <li><a href="#">慕课网</a> </li>
+        <li><a href="#">课程大厅</a> </li>
+        <li><a href="#">学习中心</a>
+            <ul id="mnuUL">
+                <div class="corner"></div>
+                <li><a href="#">前端课程 </a></li>
+                <li><a href="#">手机开发</a> </li>
+                <li><a href="#">后台编程</a></li>
+            </ul>
+        </li>
+        <li><a href="#">关于我们</a></li>
+         </ul>
+</body>
+</html>
