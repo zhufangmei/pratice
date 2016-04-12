@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>万年历</title>
+		<link rel="stylesheet" href="calendar.css">
+		<script type="text/javascript" src="jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="calendar.js"></script>
+	</head>
+	<body>
+		<!-- 日历的外包装容器-->
+		<div class="calender-wrapper">
+			<!-- 日历标题和图标-->
+			<div class="calender-title ">
+				日历
+			</div>
+			<!--年月选择下拉框-->
+			<div class="calender-date">
+
+				<select class="calender-year" id="calender-year" value="2016年">
+                    
+				</select>
+
+				<select class="calender-month" id="calender-month">
+					
+				</select>
+				<!--年月左右加减按钮-->
+				<span class="left-btn left-btn1"  id="left-btn1"></span>
+				<span class="right-btn right-btn1" id="right-btn1"></span>
+				<span class="left-btn left-btn2" id="left-btn2" ></span>
+				<span class="right-btn right-btn2" id="right-btn2"></span>
+				<span id="return-today" class="switch-today">返回今天</span>
+			</div>
+			<!--日历表-->
+			<div class="calender-box">
+				<table class="calender-tab">
+					<!--日历星期-->
+					<thead>
+					<tr id="calender-head">
+                         <th>日</th>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+					   
+					</tr>
+					</thead>
+					<!--日历日期及节气-->
+					<tbody class="calender-day">
+					<tr class="calender-row">
+						
+					</tr>
+					<tr class="calender-row">
+					
+					</tr>
+					<tr class="calender-row">
+
+				    </tr>
+					<tr class="calender-row">
+
+					</tr>
+					<tr class="calender-row">
+						
+					</tr>
+					<tr class="calender-row" >
+						
+					</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</body>
+</html>

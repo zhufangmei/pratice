@@ -1,0 +1,137 @@
+*{
+  padding: 0;
+  margin: 0;
+
+}
+body{
+	background-color:#EDEDED; 
+	font-family: '宋体';
+	font-size: 12px;
+	color: #C7C7C7;
+	
+}
+/* 日历包装容器*/
+ .calender-wrapper{
+ 	
+  width: 500px;
+  height: 370px;
+  margin:30px auto 0 auto;
+
+  background-color: #FFFFFF;
+   border-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+   -moz-border-radius: 20px; /* Firefox */
+   -webkit-border-radius:20px; /* Safari 和 Chrome */
+   border:1px solid #F4F5F7;
+   box-shadow:5px 5px 5px #ccc;
+   -moz-box-shadow:5px 5px 5px #ccc;
+   -moz-box-shadow:5px 5px 5px #ccc;
+ }
+ .calender-title{
+ 	height: 40px;
+ 	width: 500px;
+ 	box-sizing:border-box;
+   line-height: 40px;
+   color:red;	
+ 	font-family: '宋体';
+	font-size: 18px;
+	padding-left: 40px;
+	background: url(img/logo-icon.png) no-repeat 8px 2px;
+	border-bottom: 1px solid #ccc;
+	background-color:#dce5ca;
+	 border-top-left-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+   -moz-border-top-left-radius: 20px; /* Firefox */
+   -webkit-border-top-left-radius:20px; /* Safari 和 Chrome */
+    border-top-right-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+   -moz-border-top-right-radius: 20px; /* Firefox */
+   -webkit-border-top-right-radius:20px; /* Safari 和 Chrome */
+
+ }
+
+ .calender-date{
+   position: relative;
+ 	margin-left: auto;
+ 	margin-right:auto;
+	width:400px;
+	text-align:center;
+	line-height: 19px;
+	padding-top:10px;
+	
+}
+.calender-date .left-btn{display:inline-block;width:10px;height:16px;background:url(img/btn-left.png) no-repeat;position: absolute;}
+.calender-date .left-btn1{top:12px;left:78px;}
+.calender-date .left-btn2{top:12px;left:184px;}
+.calender-date .right-btn{display:inline-block;width:10px;height:16px;background:url(img/btn-right.png) no-repeat;position:absolute}
+.calender-date .right-btn1{top:11px;left:160px;}
+.calender-date .right-btn2{top:11px;left:266px;}
+.calender-date select{
+	
+    width:70px;
+    margin-left:30px;
+}
+#return-today{
+	background-color:#dce5ca;
+	border:1px solid #A9A9A9;
+	height: 19px;
+	width:70px;
+	line-height: 19px;
+	font-size: 13px;
+	color: black;
+	margin-left:15px; 
+	text-align: center;
+	border-radius: 2px;
+}
+
+
+
+.calender-box{
+	
+	margin:20px auto;
+	
+	width:400px;
+	height: 250px;
+	border:none;
+	box-sizing:border-box;
+    border-top:1px solid #B2CFED;
+}
+
+
+.calender-tab{
+	width:400px;
+	height: 240px;
+	box-sizing:border-box;
+	font-size: 13px;
+	color: black;
+	border-collapse:collapse;
+}
+ .calender-row,{
+	height: 50px;
+	line-height: 50px;
+}
+.calender-row,.calender-row td{
+	border: 1px solid #ccc;
+	
+}
+.calender-tab th{
+	width: 60px;
+	font-size: 13px;
+	font-weight:normal;
+	border:none;
+
+    border-bottom:1px solid #E3E3E4;
+}
+#calender-head{
+	height: 37px;
+}
+.calender-tab td{
+	width:60px;
+	text-align: center;
+	color:#494949;
+	}
+
+.festivalcolor{color:#55e8e4;}
+.sel{
+	background:pink;
+	}
+.gray{
+	background:#fff;
+	}
