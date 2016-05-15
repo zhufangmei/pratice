@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	瀑布流布局</title>
+	<style>
+	#div1{width:915px;position: relative;}
+	#ul1 li{position:absolute;width:178px;margin-right:5px;list-style: none;}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<ul id="ul1">	
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png"alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png"alt=""></li>
+			<li><img src="images/1001.png"alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+			<li><img src="images/1001.png"alt=""></li>
+			<li><img src="images/1001.png" alt=""></li>
+
+		</ul>
+	</div>
+	<script>
+	window.onload=function(){
+		function $(id) {
+			return typeof id==='string'?document.getElementById(id):id;
+		}
+		var div=$("div1");
+		var ul=$("ul1");
+		var lis=ul.getElementsByTagName("li");
+		ahigh={o1:[],o2:[],o3:[],o4:[],o5:[]};
+        for(var i=0;i<lis.length;i++){
+        	var inow=i%5;
+        	switch(inow){
+        		case 0:
+        		lis[i].style.left=0;
+        		ahigh.o1.push(lis[i].offsetHeight);
+        		var step=Math.floor(i/5);
+        		if(!step){
+        			lis[i].style.top=0;
+
+        		}
+        		else{
+                   var sum=0;
+                   for(var j=0;j<step;j++){
+                   	  sum+=ahigh.o1[j];
+                   }
+                   lis[i].style.top=sum+"px";
+        			}
+        		break;
+        		case 1:
+        		lis[i].style.left=183+"px";
+        		ahigh.o2.push(lis[i].offsetHeight);
+        		var step=Math.floor(i/5);
+        		if(!step){
+        			lis[i].style.top=0;
+
+        		}
+        		else{
+                   var sum=0;
+                   for(var j=0;j<step;j++){
+                   	  sum+=ahigh.o2[j];
+                   }
+                   lis[i].style.top=sum+"px";
+        			}
+        		break;
+        		case 2:
+        		lis[i].style.left=366+"px";
+        		ahigh.o3.push(lis[i].offsetHeight);
+        		var step=Math.floor(i/5);
+        		if(!step){
+        			lis[i].style.top=0;
+
+        		}
+        		else{
+                   var sum=0;
+                   for(var j=0;j<step;j++){
+                   	  sum+=ahigh.o3[j];
+                   }
+                   lis[i].style.top=sum+"px";
+        			}
+        		break;
+        		case 3:
+        		lis[i].style.left=549+"px";
+        		ahigh.o4.push(lis[i].offsetHeight);
+        		var step=Math.floor(i/5);
+        		if(!step){
+        			lis[i].style.top=0;
+
+        		}
+        		else{
+                   var sum=0;
+                   for(var j=0;j<step;j++){
+                   	  sum+=ahigh.o4[j];
+                   }
+                   lis[i].style.top=sum+"px";
+        			}
+        		break;
+        		case 4:
+        		lis[i].style.left=732+"px";
+        		ahigh.o5.push(lis[i].offsetHeight);
+        		var step=Math.floor(i/5);
+        		if(!step){
+        			lis[i].style.top=0;
+
+        		}
+        		else{
+                   var sum=0;
+                   for(var j=0;j<step;j++){
+                   	  sum+=ahigh.o5[j];
+                   }
+                   lis[i].style.top=sum+"px";
+        			}
+        		break;
+        }
+	}
+}
+	</script>
+</body>
+</html>
