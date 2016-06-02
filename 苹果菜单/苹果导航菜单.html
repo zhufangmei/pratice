@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+body {margin:0;}
+#div1 {width:100%; position:absolute; bottom:0; text-align:center;}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+</head>
+
+<body>
+
+<div id="div1">
+    <img src="images/1.png" width="64" />
+    <img src="images/2.png" width="64" />
+    <img src="images/3.png" width="64" />
+    <img src="images/4.png" width="64" />
+    <img src="images/5.png" width="64" />
+</div>
+<script>
+window.onload=function(){
+	document.onmousemove=function (ev)
+     {  
+	var e=ev||event;
+	var oDiv=document.getElementById('div1');
+	var aImg=document.getElementsByTagName('img');
+	
+	var i=0;
+	
+	for(i=0;i<aImg.length;i++)
+	{   var x1=e.clientX;
+		var y1=e.clientY;
+		var x=aImg[i].offsetLeft+aImg[i].offsetWidth/2;
+		var y=aImg[i].offsetTop+oDiv.offsetTop+aImg[i].offsetHeight/2;
+		var distance=parseInt(Math.sqrt(Math.pow((x1-x),2)+Math.pow((y1-y),2)));
+
+		var scale=1-(distance/300).toFixed(2);
+		if(scale<0.5){
+			scale=0.5;
+		}
+		aImg[i].style.width=128*scale+"px"
+		//console.log(scale)
+		
+  };
+}
+
+}
+
+</script>
+</body>
+</html>
