@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>360旋转图片</title>
+	<style>
+	div{width:640px;margin:50px auto;}
+	
+	</style>
+</head>
+<body>
+    <div id='wrapper'>
+		<img id="img1" src="img/miaov (0).jpg" />
+	</div>
+	<script>//bug一直点击图片为什么图片一直旋转停不下来
+	window.onload=function(){
+		var timer=null;
+		var left=0
+		var oimg=document.getElementById("img1");
+		var wrapper=document.getElementById("wrapper");
+		aimg=document.getElementsByTagName("img");
+		var lastimg=oimg;
+	    var speed=0;
+		var lastx=0;
+		for(var i=0;i<77;i++){
+			(function(newimg){
+				var oimg=new Image();
+			oimg.onload=function(){
+				newimg.src=this.src;//图片预加载，解决IE9下一闪一闪的问题
+			}
+			oimg.src="img/miaov ("+i+").jpg" ;
+			newimg.style.display="none";
+            wrapper.appendChild(newimg);
+			
+		  })(document.createElement("img"))
+						
+			//console.log(newimg.src)			
+			//newimg.src='img/miaov('+i+').jpg';
+			
+		} 
+		console.log(document.onmousedown)
+		
+			document.onmousedown=function(ev){
+				function move(){
+					if(speed>0){
+						speed--;
+					}
+					else{
+						speed++;
+					}
+					if(speed==0){
+						clearInterval(timer);
+					}
+					var oleft=parseInt(-left/10);
+					if(oleft>0){
+						oleft=oleft%77;
+					}
+					else{
+						oleft=oleft+-Math.floor(oleft/77)*77;
+					}
+					if(lastimg!=aimg[oleft]){
+						lastimg.style.display="none";
+						aimg[oleft].style.display="block";
+						lastimg=aimg[oleft];
+					}
+				}
+				var e=ev||window.event;
+				var disx=e.clientX-left;
+				document.onmousemove=function(ev){
+				var e=ev||window.event;
+				left=e.clientX-disx;
+				  move();
+				 speed=left-lastx;
+				 lastx=left;				
+                  return false;//ie防止拖动选中图片
+			    }
+			    document.onmouseup=function(ev){
+				document.onmouseup=null;
+				document.onmousemove=null;
+				 
+				 timer=setInterval(function(){
+				 	left+=speed;
+				 	move();
+				 },20);
+			   //防止拖动选中图片 	
+		}
+		return false;
+	}
+		
+
+			
+}
+	</script>
+</body>
+</html>  
