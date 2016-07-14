@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机运动的彩粒子</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+	window.onload=function(){
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		var W = window.innerWidth; var H =window.innerHeight;
+        canvas.width=W;canvas.height=H;
+		var particles = [];
+		for(var i = 0; i < 50; i++)
+		{
+			particles.push(new create_particle());
+		}
+		function create_particle()
+		{
+			this.x = Math.random()*W;
+			this.y = Math.random()*H;
+			this.vx = Math.random()*20-10;
+			this.vy = Math.random()*20-10;
+			var r = Math.random()*255>>0;
+			//console.log(r)
+			var g = Math.random()*255>>0;//将颜色化成整数
+			var b = Math.random()*255>>0;
+			this.color = "rgba("+r+", "+g+", "+b+", 0.5)";
+			this.radius = Math.random()*20+20;
+		}
+		var x = 100; var y = 100;
+		function draw()
+		{   console.log(W)
+			ctx.globalCompositeOperation = "source-over";
+			ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+			ctx.fillRect(0, 0, W, H);
+			ctx.globalCompositeOperation = "lighter";
+			for(var t = 0; t < particles.length; t++)
+			{
+				var p = particles[t];	
+				ctx.beginPath();
+				var gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
+				gradient.addColorStop(0, "white");
+				//gradient.addColorStop(0.4, "white");
+				gradient.addColorStop(0.4, p.color);
+				gradient.addColorStop(1, "black");				
+				ctx.fillStyle = gradient;
+				ctx.arc(p.x, p.y, p.radius, Math.PI*2, false);
+				ctx.closePath();
+				ctx.fill();
+				p.x += p.vx;
+				p.y += p.vy;
+				if(p.x < -50) p.x = W+50;
+				if(p.y < -50) p.y = H+50;
+				if(p.x > W+50) p.x = -50;
+				if(p.y > H+50) p.y = -50;
+			}
+		}
+
+		setInterval(draw, 33);
+	}
+	
+	</script>
+</body>
+</html>
